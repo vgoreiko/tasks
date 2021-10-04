@@ -36,6 +36,9 @@
     "client-e2e": {
       "tags": [],
       "implicitDependencies": ["client"]
+    },
+    "tasks": {
+      "tags": ["task", "tasks"]
     }
   }
 }
