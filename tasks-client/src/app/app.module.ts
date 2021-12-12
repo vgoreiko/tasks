@@ -3,20 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateTaskComponent, TaskEditComponent, TasksListComponent } from './tasks';
+import { TasksModule, TasksRoutingModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateTaskComponent,
-    TasksListComponent,
-    TaskEditComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TasksModule,
+    TasksRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

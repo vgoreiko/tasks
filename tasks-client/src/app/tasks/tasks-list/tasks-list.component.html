@@ -1,2 +1,22 @@
 <p>tasks-list works!</p>
-<a routerLink="/new">Create Task</a>
+<a routerLink="../new">Create Task</a>
+<main>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks$ | async">
+      <td>{{task.id}}</td>
+      <td>{{task.name}}</td>
+      <td>{{task.status}}</td>
+      <td>{{task.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+</main>
