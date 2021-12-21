@@ -5,6 +5,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { getConnectionOptions } from 'typeorm';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { getConnectionOptions } from 'typeorm';
         }),
     }),
     TasksModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

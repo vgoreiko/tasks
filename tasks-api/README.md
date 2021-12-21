@@ -23,4 +23,5 @@
 
 6) Add SSR +-
 
+7) Auth as separate microService
 

@@ -14,21 +14,22 @@ import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'tasks',
-    pathMatch: 'full',
-  },
-  {
     path: 'tasks',
-    component: TasksListComponent,
-  },
-  {
-    path: 'new',
-    component: TaskCreateComponent,
-  },
-  {
-    path: ':id',
-    component: TaskEditComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: TasksListComponent,
+      },
+      {
+        path: 'new',
+        component: TaskCreateComponent,
+      },
+      {
+        path: ':id',
+        component: TaskEditComponent,
+      },
+    ]
   },
 ];
 
@@ -58,5 +59,6 @@ export class TasksRoutingModule { }
     TasksRepositoryService,
     TaskFormService,
   ],
+  exports: [TasksRoutingModule],
 })
 export class TasksModule { }

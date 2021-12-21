@@ -5,15 +5,8 @@
   "username": "postgres",
   "password": "Admin",
   "database": "tasks",
-  "synchronize": false,
+  "synchronize": true,
   "logging": true,
-  "entities": [
-    "**/*.entity.ts"
-  ],
-  "migrations": [
-    "migration/**/*.ts"
-  ],
-  "cli": {
-    "migrationsDir": "migration"
-  }
+  "migrations": ["migration/**/*.ts"],
+  "cli": {"migrationsDir": "migration"}
 }

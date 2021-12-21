@@ -1,12 +1,12 @@
 <p>tasks-list works!</p>
-<a routerLink="../new" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">Create Task</a>
+<a routerLink="new" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">Create Task</a>
 <main>
   <table mat-table [dataSource]="dataSource" class="w-full">
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> <a class="link" [routerLink]="['../', element.id]">{{element.name}}</a> </td>
+      <td mat-cell *matCellDef="let element"> <a class="link" [routerLink]="['./', element.id]">{{element.name}}</a> </td>
     </ng-container>
 
     <!-- Status Column -->

@@ -3,8 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TasksModule, TasksRoutingModule } from './tasks/tasks.module';
+import { TasksModule } from './tasks/tasks.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from './auth/auth.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Auth401ErrorInterceptor } from './auth/auth-401-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -12,10 +15,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    TasksModule,
-    TasksRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    AuthModule,
+    TasksModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Auth401ErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
