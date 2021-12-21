@@ -18,4 +18,9 @@
 3) TODO: add https://dev.to/arnaudcortisse/trying-out-nestjs-part-4-generate-typescript-clients-from-openapi-documents-28mk
 
 4) Is used for swagger decoration with @ApiProperty https://docs.nestjs.com/openapi/cli-plugin
-5) 
+
+5) Add google authorization method
+
+6) Add SSR +-
+
+
