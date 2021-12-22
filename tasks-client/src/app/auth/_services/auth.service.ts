@@ -11,6 +11,7 @@ export class AuthService {
 
   saveTokenToStorage(token: Token): void {
     if(typeof token === 'string') {
+      this._token = token;
       return sessionStorage.setItem(tokenKeyName, token);
     }
     return sessionStorage.removeItem(tokenKeyName);
