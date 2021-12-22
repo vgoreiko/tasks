@@ -9,6 +9,11 @@ const tokenKeyName = "authToken";
 export class AuthService {
   #token: Token = null
 
+  constructor() {
+    const token = sessionStorage.getItem(tokenKeyName);
+    if(token) this.token = token;
+  }
+
   saveTokenToStorage(token: Token): void {
     if(typeof token === 'string') {
       return sessionStorage.setItem(tokenKeyName, token);
@@ -31,5 +36,6 @@ export class AuthService {
 
   set token(token: Token) {
     this.#token = token;
+    this.saveTokenToStorage(token);
   }
 }
