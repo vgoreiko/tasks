@@ -1,0 +1,26 @@
+<header class="max-w-xs mx-auto mt-10 ">
+  <h1>SignIn</h1>
+</header>
+
+<form class="form max-w-xs mx-auto" [formGroup]="signInFormGroup">
+  <div class="block">
+    <mat-form-field appearance="fill" class=" w-full">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field>
+  </div>
+
+  <div class="block mb-4">
+    <mat-form-field appearance="fill" class="block w-full">
+      <mat-label>Password</mat-label>
+      <input type="password" autocomplete="off" matInput placeholder="Placeholder" formControlName="password">
+      <mat-hint>Need to be at least 8 symbols, capital letter, special symbol</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex justify-end">
+    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  </div>
+</form>
+
+

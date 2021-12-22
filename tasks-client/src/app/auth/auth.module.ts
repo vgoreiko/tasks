@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Auth401ErrorInterceptor } from './auth-401-error.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AuthFormBuilderService } from './_services';
 
 const routes: Routes = [
   {
@@ -13,15 +16,15 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        component: SigninComponent,
+        component: RegisterComponent,
       },
       {
-        path: 'signin',
-        component: SigninComponent,
+        path: 'register',
+        component: RegisterComponent,
       },
       {
-        path: 'signup',
-        component: SignupComponent,
+        path: 'login',
+        component: LoginComponent,
       },
     ]
   },
@@ -35,16 +38,22 @@ export class AuthRoutingModule { }
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   declarations: [
-    SignupComponent,
-    SigninComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
+  providers: [ AuthFormBuilderService ],
   exports: [
     AuthRoutingModule,
-    SignupComponent,
-    SigninComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
 })
 export class AuthModule {

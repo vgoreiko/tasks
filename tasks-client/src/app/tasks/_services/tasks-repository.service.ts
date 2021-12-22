@@ -12,7 +12,7 @@ export class TasksRepositoryService {
   }
 
   createTask(createTaskDto: CreateTaskDto): Observable<Task> {
-    return this._http.post<Task>('api/tasks', createTaskDto);
+    return this._http.post<Task>('api/tasks', createTaskDto)
   }
 
   deleteTask(id: string) {

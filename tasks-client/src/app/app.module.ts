@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Auth401ErrorInterceptor } from './auth/auth-401-error.interceptor';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { Auth401ErrorInterceptor } from './auth/auth-401-error.interceptor';
     AppRoutingModule,
     AuthModule,
     TasksModule,
+    MatToolbarModule
   ],
   providers: [
     {

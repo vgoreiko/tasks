@@ -1,17 +1,17 @@
-<p>create-task works!</p>
-<a routerLink="/tasks" class="link">Tasks list</a>
+<header class="max-w-xs mx-auto mt-10 ">
+  <h1>Create a task</h1>
+</header>
 
-<section [formGroup]="taskFormGroup" class="mt-10">
+<section [formGroup]="taskFormGroup" class="mt-10 form max-w-xs mx-auto">
   <div>
-<!--    //TODO: replace fullwidth class with tailwind-->
-    <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="w-full" appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Type some name" formControlName="name">
     </mat-form-field>
   </div>
 
   <div>
-    <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="w-full" appearance="fill">
       <mat-label>Description</mat-label>
       <input matInput placeholder="Type some description" formControlName="description">
     </mat-form-field>
