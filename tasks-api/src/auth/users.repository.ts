@@ -10,7 +10,7 @@ import { validate } from 'class-validator';
 
 @EntityRepository(User)
 export class UsersRepository extends Repository<User> {
-  async createUser(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async createUser(authCredentialsDto: AuthCredentialsDto): Promise<User> {
     const { username, password } = authCredentialsDto;
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -20,13 +20,15 @@ export class UsersRepository extends Repository<User> {
     userValidation.password = password;
     const errors = await validate(userValidation);
     if (errors.length) {
-      throw new InternalServerErrorException('Password is too weak');
+      throw new InternalServerErrorException(
+        'Credentials does not fit requirements',
+      );
     }
 
     const user = this.create({ username, password: hashedPassword });
 
     try {
-      await this.save(user);
+      return this.save(user);
     } catch (error) {
       if (error.code === '23505') {
         throw new ConflictException('Username already exists');

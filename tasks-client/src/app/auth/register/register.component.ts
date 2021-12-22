@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AuthFormBuilderService, AuthRepositoryService, AuthService } from '../_services';
-import { AuthorizeDto } from '../_models';
 import { Router } from '@angular/router';
+import { TokenDto } from '../_models';
 
 @Component({
   selector: 'app-register',
@@ -24,8 +24,8 @@ export class RegisterComponent {
     if (this.signInFormGroup.valid) {
       const raw = this.signInFormGroup.getRawValue();
       this._authRepositoryService.createUser(raw)
-        .subscribe((response: AuthorizeDto) => {
-          this._authService.saveTokenToStorage(response?.token);
+        .subscribe((response: TokenDto) => {
+          this._authService.saveTokenToStorage(response.accessToken);
           return this._router.navigate(['/tasks']);
         });
     }

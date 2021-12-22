@@ -7,7 +7,7 @@ const tokenKeyName = "authToken";
   providedIn: 'root'
 })
 export class AuthService {
-  #token: Token = sessionStorage.getItem(tokenKeyName);
+  private _token: Token = sessionStorage.getItem(tokenKeyName);
 
   saveTokenToStorage(token: Token): void {
     if(typeof token === 'string') {
@@ -17,6 +17,7 @@ export class AuthService {
   }
 
   removeToken(): void {
+    this._token = null;
     return sessionStorage.removeItem(tokenKeyName);
   }
 
@@ -26,11 +27,11 @@ export class AuthService {
   }
 
   get token(): Token {
-    return this.#token;
+    return this._token;
   }
 
   set token(token: Token) {
-    this.#token = token;
+    this._token = token;
     this.saveTokenToStorage(token);
   }
 }

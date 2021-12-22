@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,15 @@ import { AuthService } from './auth';
 })
 export class AppComponent {
   title = 'tasksClient';
-  constructor(private readonly _authService: AuthService) {
+  constructor(
+    private readonly _authService: AuthService,
+    private readonly _router: Router,
+  ) {
+  }
+
+  logout(): Promise<boolean> {
+    this._authService.removeToken();
+    return this._router.navigate(["/"]);
   }
 
   get isAuthenticated(): boolean {

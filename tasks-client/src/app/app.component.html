@@ -10,10 +10,18 @@
       <a *ngIf="!isAuthenticated"
          routerLinkActive="text-green-600"
          routerLink="/auth/login"
-         class="text-base hover:underline">Login</a>
+         class="text-base hover:underline leading-8">Login</a>
+
+      <button
+        *ngIf="isAuthenticated"
+        mat-raised-button
+        color="warn"
+        (click)="logout()"
+      >Logout</button>
+
       <a routerLink="/auth/register"
          routerLinkActive="text-green-600"
-         class="text-base hover:underline">Register</a>
+         class="text-base hover:underline leading-8">Register</a>
     </div>
   </mat-toolbar>
 </header>

@@ -11,7 +11,7 @@ export class AuthFormBuilderService {
       password: ['', [
         Validators.required,
         Validators.maxLength(100),
-        Validators.pattern(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
+        // Validators.pattern(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
       ]]
     })
   }

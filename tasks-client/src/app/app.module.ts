@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks';
 import { Auth401ErrorInterceptor, AuthModule, AuthTokenInterceptor } from './auth';
+import { MatButtonModule } from '@angular/material/button';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { Auth401ErrorInterceptor, AuthModule, AuthTokenInterceptor } from './aut
     AppRoutingModule,
     AuthModule,
     TasksModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {
