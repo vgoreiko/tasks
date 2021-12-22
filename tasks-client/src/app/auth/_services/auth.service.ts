@@ -7,12 +7,7 @@ const tokenKeyName = "authToken";
   providedIn: 'root'
 })
 export class AuthService {
-  #token: Token = null
-
-  constructor() {
-    const token = sessionStorage.getItem(tokenKeyName);
-    if(token) this.token = token;
-  }
+  #token: Token = sessionStorage.getItem(tokenKeyName);
 
   saveTokenToStorage(token: Token): void {
     if(typeof token === 'string') {
