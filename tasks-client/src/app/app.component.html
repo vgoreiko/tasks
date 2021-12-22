@@ -1,11 +1,22 @@
 <header>
   <mat-toolbar color="primary" class="flex gap-x-3 place-content-between">
     <div class="left gap-x-3 flex">
-      <a routerLink="/tasks" class="text-base hover:underline">Tasks</a>
+      <a *ngIf="isAuthenticated"
+         routerLink="/tasks"
+         routerLinkActive="text-green-600"
+         [routerLinkActiveOptions]="{exact:true}"
+         class="text-base hover:underline">Tasks</a>
     </div>
     <div class="right gap-x-3 flex justify-end">
-      <a routerLink="/auth/login" class="text-base hover:underline">Login</a>
-      <a routerLink="/auth/register" class="text-base hover:underline">Register</a>
+      <a *ngIf="!isAuthenticated"
+         routerLinkActive="text-green-600"
+         routerLink="/auth/login"
+         [routerLinkActiveOptions]="{exact:true}"
+         class="text-base hover:underline">Login</a>
+      <a routerLink="/auth/register"
+         routerLinkActive="text-green-600"
+         [routerLinkActiveOptions]="{exact:true}"
+         class="text-base hover:underline">Register</a>
     </div>
   </mat-toolbar>
 </header>

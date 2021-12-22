@@ -20,6 +20,11 @@ export class AuthService {
     return sessionStorage.removeItem(tokenKeyName);
   }
 
+  get isAuthenticated(): boolean {
+    const token = this.token;
+    return !!token;
+  }
+
   get token(): Token {
     return this.#token;
   }

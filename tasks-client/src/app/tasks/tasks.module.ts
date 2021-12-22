@@ -11,33 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
-const routes: Routes = [
-  {
-    path: 'tasks',
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        component: TasksListComponent,
-      },
-      {
-        path: 'new',
-        component: TaskCreateComponent,
-      },
-      {
-        path: ':id',
-        component: TaskEditComponent,
-      },
-    ]
-  },
-];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class TasksRoutingModule { }
+import { TasksRoutingModule } from './tasks-routing.module';
 
 @NgModule({
   declarations: [

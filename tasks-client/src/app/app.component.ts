@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tasksClient';
+  constructor(private readonly _authService: AuthService) {
+  }
+
+  get isAuthenticated(): boolean {
+    return this._authService.isAuthenticated;
+  }
 }
